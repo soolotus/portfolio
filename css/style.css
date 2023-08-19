@@ -5,7 +5,7 @@
     --color-primary-variant: var(--color-gray);
     --color-accent: var(--color-blue);
     --color-accent-variant: var(--color-orange);
-    --color-text: var(--color-white)
+    --color-text: var(--color-white);
 
     /* Colors */
     --color-white: #ffffff;
@@ -41,7 +41,7 @@ ul {
 
 a{
     text-decoration: none;
-    color; var(--color-primary)
+    color: var(--color-text)
 }
 button {
     background-color: transparent;
@@ -94,3 +94,47 @@ button:focus{
      border-radius: 14px;
  }
  
+ /* Home */
+ #home {
+     background-color: var(--color-primary);
+     color: var(--color-text);
+     padding: 5rem 1rem;
+     padding-top: 7rem;
+     text-align: center;
+ }
+ .home__avatar {
+     width: 250px;
+     object-fit:cover;
+     border-radius: 100%;
+     border: 3px solid var(--color-accent);
+ }
+
+ .home__title {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+
+ }
+ 
+ .home__title-strong {
+     color: var(--color-accent);
+ }
+
+ .home__description{
+     font-size: 1.3rem;
+ }
+
+ .home__contact {
+     display: inline-block;
+     background-color: var(--color-accent);
+     color: var(--color-primary);
+     font-weight: bold;
+     padding: 0.5rem 1rem;
+     margin:  2rem;
+     border-radius: 4px;
+ }
+
+ .home__contact:hover{
+     background-color: transparent;  /*투명*/
+     outline: 2px solid var(--color-accent);
+     color: var(--color-text);
+ }
