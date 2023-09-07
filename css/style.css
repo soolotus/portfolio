@@ -26,6 +26,9 @@ https://m2.material.io/design/color/the-color-system.html#color-theme-creation *
 * {
     box-sizing:  border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;

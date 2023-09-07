@@ -9,8 +9,12 @@ const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonial', '#con
 const sections = sectionIds.map((id) => document.querySelector(id));
 const navItems = sectionIds.map(id => document.querySelector(`[href="${id}"]`));
 const visibleSections = sectionIds.map(() => false);
+let activeNavItem = navItems[0];
 
-const options = {}
+const options = {
+    rootMargin: '-20% 0px 0px 0px',
+    threshold: [0, 0.98]
+}
 const observer = new IntersectionObserver(observerCallback, options);
 sections.forEach(section => observer.observe(section));
 function observerCallback(entries) {
@@ -22,7 +26,7 @@ function observerCallback(entries) {
         selectLastOne =
             index === sectionIds.length - 1 &&
             entry.isIntersecting &&
-            entry.intersectionRatio >= 0.99;
+            entry.intersectionRatio >= 0.95;
 
         // console.log(index)
         // console.log(entry.target);
@@ -34,7 +38,16 @@ function observerCallback(entries) {
     const navIndex = selectLastOne
         ? sectionIds.length - 1
         : findFirstIntersecting(visibleSections);
-    console.log(navIndex);
+    // console.log(navIndex);
+    selectNavItem(navIndex);
+
+}
+function selectNavItem(index) {
+    const navItem = navItems[index];
+    if (!navItem) return;
+    activeNavItem.classList.remove('active');
+    activeNavItem = navItem;
+    activeNavItem.classList.add('active');
 }
 function findFirstIntersecting(intersections) {
     const index = intersections.indexOf(true);
